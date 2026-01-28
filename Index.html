@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Estilo Nayarit App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        #menuLateral { transition: transform 0.3s ease-in-out; transform: translateX(-100%); }
+        .active-menu { transform: translateX(0) !important; }
+        #pantalla-menu { transition: transform 0.3s ease-in-out; transform: translateX(100%); }
+        .active-carta { transform: translateX(0) !important; }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans pb-24">
+
+    <div id="splash-screen" class="fixed inset-0 bg-white z-[100] flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="text-center p-6">
+            <img src="https://raw.githubusercontent.com/jtafollam-gif/Estilo-Nayarit/main/logo-san-blas.png" 
+                 alt="Logo" class="w-48 h-auto mb-6 animate-pulse">
+            <h1 class="text-2xl font-black italic text-blue-900 mb-2 uppercase">ESTILO NAYARIT</h1>
+            <p id="loading-status" class="text-gray-400 text-[10px] font-bold uppercase tracking-widest">Iniciando sistema...</p>
+            <div class="mt-8 w-10 h-10 border-2 border-gray-100 border-t-blue-600 rounded-full animate-spin mx-auto"></div>
+        </div>
+    </div>
+
+    <header class="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-40">
+        <button onclick="toggleMenu()" class="text-2xl text-blue-900">☰</button>
+        <h1 class="text-xl font-black italic tracking-tighter text-blue-900 text-center uppercase">ESTILO NAYARIT</h1>
+        <button class="text-2xl text-blue-900 relative">
+            👜<span class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center">0</span>
+        </button>
+    </header>
+
+    <div id="overlay" onclick="toggleMenu()" class="fixed inset-0 bg-black/50 hidden z-40"></div>
+    <div id="menuLateral" class="fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 p-6">
+        <div class="flex justify-between items-center mb-10">
+            <span class="text-blue-900 font-bold text-xl italic uppercase">Menú</span>
+            <button onclick="toggleMenu()" class="text-gray-400 text-2xl">✕</button>
+        </div>
+        <ul class="space-y-6 text-lg font-semibold text-gray-700">
+            <li><a href="#" onclick="toggleMenu()">🏠 Inicio</a></li>
+            <li><a href="#" onclick="abrirMenuDetallado()">🍤 Restaurante</a></li>
+            <li><a href="#" onclick="toggleMenu()">🛵 Servicio a domicilio</a></li>
+            <li><a href="#" onclick="toggleMenu()">🌊 Nosotros</a></li>
+            <li><a href="#" onclick="toggleMenu()">📍 Ubicación</a></li>
+        </ul>
+    </div>
+
+    <section class="p-4 overflow-x-auto flex gap-4 no-scrollbar bg-blue-50">
+        <div class="min-w-[280px] bg-blue-600 text-white p-4 rounded-2xl shadow-md font-bold">📢 Bienvenidos a Albereda</div>
+        <div class="min-w-[280px] bg-orange-500 text-white p-4 rounded-2xl shadow-md font-bold">🍤 2x1 Jueves de Aguachile</div>
+        <div class="min-w-[280px] bg-green-600 text-white p-4 rounded-2xl shadow-md font-bold">₿ Aceptamos Criptoactivos</div>
+        <div class="min-w-[280px] bg-purple-600 text-white p-4 rounded-2xl shadow-md font-bold">🚚 Servicio Local Gratis</div>
+    </section>
+
+    <nav class="flex gap-2 p-4 overflow-x-auto no-scrollbar bg-white border-b">
+        <button class="px-4 py-2 bg-blue-900 text-white rounded-full whitespace-nowrap text-xs font-bold uppercase">Categorías</button>
+        <button class="px-4 py-2 bg-gray-100 rounded-full whitespace-nowrap text-xs font-bold uppercase">Platillos</button>
+        <button class="px-4 py-2 bg-yellow-100 rounded-full whitespace-nowrap text-xs font-bold uppercase">Mundo Cripto</button>
+        <button class="px-4 py-2 bg-gray-100 rounded-full whitespace-nowrap text-xs font-bold uppercase">Opiniones</button>
+    </nav>
+
+    <div class="p-4">
+        <p class="text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-widest text-center">Comercio Local Albereda Residencial</p>
+        <section class="flex gap-3 overflow-x-auto no-scrollbar">
+            <div class="min-w-[140px] h-24 bg-white rounded-xl border-2 border-dashed border-gray-200 flex items-center justify-center text-center p-2 text-[10px] font-bold text-gray-300">Anuncio Local 1</div>
+            <div class="min-w-[140px] h-24 bg-white rounded-xl border-2 border-dashed border-gray-200 flex items-center justify-center text-center p-2 text-[10px] font-bold text-gray-300">Anuncio Local 2</div>
+        </section>
+    </div>
+
+    <main class="p-4 space-y-3">
+        <button onclick="abrirMenuDetallado()" class="w-full bg-white p-5 rounded-2xl shadow-sm border flex justify-between font-bold text-gray-700">🥘 Platillo del día <span>→</span></button>
+        <button class="w-full bg-red-600 text-white p-6 rounded-3xl shadow-lg flex justify-between font-black italic uppercase">🎬 ACCESO YOUTUBE <span>▶</span></button>
+    </main>
+
+    <div id="pantalla-menu" class="fixed inset-0 bg-gray-50 z-[60] hidden overflow-y-auto pb-24">
+        <header class="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0">
+            <button onclick="cerrarMenuDetallado()" class="text-blue-900 font-bold">← Volver</button>
+            <h2 class="text-lg font-black text-blue-900 italic uppercase">NUESTRO MENÚ</h2>
+            <div class="w-8"></div>
+        </header>
+        <div class="p-4 grid grid-cols-2 gap-3">
+            <button class="bg-white p-4 rounded-xl border font-bold text-xs">1. Entradas</button>
+            <button class="bg-blue-600 text-white p-4 rounded-xl font-bold text-xs">14. Sushi</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('menuLateral').classList.toggle('active-menu');
+            document.getElementById('overlay').classList.toggle('hidden');
+        }
+        function abrirMenuDetallado() {
+            const p = document.getElementById('pantalla-menu');
+            p.classList.remove('hidden');
+            setTimeout(() => p.classList.add('active-carta'), 10);
+        }
+        function cerrarMenuDetallado() {
+            const p = document.getElementById('pantalla-menu');
+            p.classList.remove('active-carta');
+            setTimeout(() => p.classList.add('hidden'), 300);
+        }
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const s = document.getElementById('splash-screen');
+                s.style.opacity = '0';
+                setTimeout(() => s.style.display = 'none', 500);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
