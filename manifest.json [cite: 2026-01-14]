@@ -1,0 +1,15 @@
+{
+  "name": "Estilo Nayarit",
+  "short_name": "Nayarit App",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a8a",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/jtafollam-gif/Estilo-Nayarit/main/logo-san-blas.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
