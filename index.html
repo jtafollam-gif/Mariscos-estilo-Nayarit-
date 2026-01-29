@@ -12,10 +12,24 @@
         .active-menu { transform: translateX(0) !important; }
         #pantalla-menu { transition: transform 0.3s ease-in-out; transform: translateX(100%); }
         .active-carta { transform: translateX(0) !important; }
+
+        /* MATIZ DE DISEÑO: FONDO Y CRISTAL */
+        body {
+            /* Reemplaza la URL por la de tu imagen cargada en GitHub */
+            background-image: url('https://raw.githubusercontent.com/jtafollam-gif/Mariscos-estilo-nayarit/main/fondo-fresco.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
 
-<body class="bg-gray-50 font-sans pb-24">
+<body class="font-sans pb-24">
 
     <div id="splash-screen" class="fixed inset-0 bg-white z-[100] flex flex-col items-center justify-center transition-opacity duration-500">
         <div class="text-center p-6">
@@ -26,7 +40,7 @@
         </div>
     </div>
 
-    <header class="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-40">
+    <header class="glass-card p-4 flex justify-between items-center sticky top-0 z-40">
         <button onclick="toggleMenu()" class="text-2xl text-blue-900">☰</button>
         <h1 class="text-xl font-black italic tracking-tighter text-blue-900 text-center uppercase">ESTILO NAYARIT</h1>
         <button class="text-2xl text-blue-900 relative">
@@ -35,78 +49,29 @@
     </header>
 
     <div id="overlay" onclick="toggleMenu()" class="fixed inset-0 bg-black/50 hidden z-40"></div>
-    <div id="menuLateral" class="fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 p-6">
-        <div class="flex justify-between items-center mb-10">
-            <span class="text-blue-900 font-bold text-xl italic uppercase">Menú</span>
-            <button onclick="toggleMenu()" class="text-gray-400 text-2xl">✕</button>
-        </div>
-        <ul class="space-y-6 text-lg font-semibold text-gray-700">
-            <li><a href="#" onclick="toggleMenu()">🏠 Inicio</a></li>
-            <li><a href="#" onclick="abrirMenuDetallado()">🍤 Restaurante</a></li>
-            <li><a href="#" onclick="toggleMenu()">🛵 Servicio a domicilio</a></li>
-            <li><a href="#" onclick="toggleMenu()">🌊 Nosotros</a></li>
-            <li><a href="#" onclick="toggleMenu()">📍 Ubicación</a></li>
-        </ul>
-    </div>
-
-    <section class="p-4 overflow-x-auto flex gap-4 no-scrollbar bg-blue-50">
-        <div class="min-w-[280px] bg-blue-600 text-white p-4 rounded-2xl shadow-md font-bold">📢 Bienvenidos a Albereda</div>
-        <div class="min-w-[280px] bg-orange-500 text-white p-4 rounded-2xl shadow-md font-bold">🍤 2x1 Jueves de Aguachile</div>
-        <div class="min-w-[280px] bg-green-600 text-white p-4 rounded-2xl shadow-md font-bold">₿ Aceptamos Criptoactivos</div>
-        <div class="min-w-[280px] bg-purple-600 text-white p-4 rounded-2xl shadow-md font-bold">🚚 Servicio Local Gratis</div>
+    
+    <section class="p-4 overflow-x-auto flex gap-4 no-scrollbar">
+        <div class="min-w-[280px] bg-blue-600/90 text-white p-4 rounded-2xl shadow-lg font-bold">📢 Bienvenidos a Albereda</div>
+        <div class="min-w-[280px] bg-orange-500/90 text-white p-4 rounded-2xl shadow-lg font-bold">🍤 2x1 Jueves de Aguachile</div>
     </section>
 
-    <nav class="flex gap-2 p-4 overflow-x-auto no-scrollbar bg-white border-b">
-        <button class="px-4 py-2 bg-blue-900 text-white rounded-full whitespace-nowrap text-xs font-bold uppercase">Categorías</button>
-        <button class="px-4 py-2 bg-gray-100 rounded-full whitespace-nowrap text-xs font-bold uppercase">Platillos</button>
-        <button class="px-4 py-2 bg-gray-100 rounded-full whitespace-nowrap text-xs font-bold uppercase">Bebidas</button>
-        <button class="px-4 py-2 bg-gray-100 rounded-full whitespace-nowrap text-xs font-bold uppercase">Servicios digitales</button>
-        <button class="px-4 py-2 bg-yellow-100 rounded-full whitespace-nowrap text-xs font-bold uppercase text-yellow-800">Mundo Cripto</button>
-        <button class="px-4 py-2 bg-gray-100 rounded-full whitespace-nowrap text-xs font-bold uppercase font-medium">Sears Albereda</button>
-        <button class="px-4 py-2 bg-gray-100 rounded-full whitespace-nowrap text-xs font-bold uppercase">Asóciate</button>
+    <nav class="flex gap-2 p-4 overflow-x-auto no-scrollbar">
+        <button class="px-4 py-2 bg-blue-900 text-white rounded-full whitespace-nowrap text-xs font-bold uppercase shadow-md">Categorías</button>
+        <button class="glass-card px-4 py-2 rounded-full whitespace-nowrap text-xs font-bold uppercase text-blue-900">Platillos</button>
+        <button class="glass-card px-4 py-2 rounded-full whitespace-nowrap text-xs font-bold uppercase text-yellow-800 italic">Mundo Cripto</button>
     </nav>
 
-    <div class="p-4">
-        <p class="text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-widest text-center">Comercio Local Albereda Residencial</p>
-        <section class="flex gap-3 overflow-x-auto no-scrollbar">
-            <div class="min-w-[140px] h-24 bg-white rounded-xl border-2 border-dashed border-gray-200 flex items-center justify-center text-center p-2 text-[10px] font-bold text-gray-300">Anuncio Local 1</div>
-            <div class="min-w-[140px] h-24 bg-white rounded-xl border-2 border-dashed border-gray-200 flex items-center justify-center text-center p-2 text-[10px] font-bold text-gray-300">Anuncio Local 2</div>
-            <div class="min-w-[140px] h-24 bg-white rounded-xl border-2 border-dashed border-gray-200 flex items-center justify-center text-center p-2 text-[10px] font-bold text-gray-300">Anuncio Local 3</div>
-        </section>
-    </div>
-
-    <main class="p-4 space-y-3">
-        <button onclick="abrirMenuDetallado()" class="w-full bg-white p-5 rounded-2xl shadow-sm border flex justify-between font-bold text-gray-700">🥘 Platillo del día <span>→</span></button>
-        <button class="w-full bg-white p-5 rounded-2xl shadow-sm border flex justify-between font-bold text-gray-700">📅 Eventos <span>→</span></button>
-        <button class="w-full bg-red-600 text-white p-6 rounded-3xl shadow-lg flex justify-between font-black italic uppercase">🎬 ACCESO YOUTUBE <span>▶</span></button>
+    <main class="p-4 space-y-4">
+        <button onclick="abrirMenuDetallado()" class="glass-card w-full p-6 rounded-3xl shadow-lg flex justify-between font-black italic text-blue-900 uppercase items-center">
+            <span>🥘 Platillo del día</span>
+            <span class="text-xl">→</span>
+        </button>
+        
+        <button class="w-full bg-red-600 text-white p-6 rounded-3xl shadow-2xl flex justify-between font-black italic uppercase items-center">
+            <span>🎬 ACCESO YOUTUBE</span>
+            <span class="bg-white text-red-600 rounded-full w-8 h-8 flex items-center justify-center">▶</span>
+        </button>
     </main>
-
-    <div id="pantalla-menu" class="fixed inset-0 bg-gray-50 z-[60] hidden overflow-y-auto pb-24">
-        <header class="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0">
-            <button onclick="cerrarMenuDetallado()" class="text-blue-900 font-bold">← Volver</button>
-            <h2 class="text-lg font-black text-blue-900 italic uppercase">NUESTRO MENÚ</h2>
-            <div class="w-8"></div>
-        </header>
-        <div class="p-4">
-            <div class="grid grid-cols-2 gap-3">
-                <button class="bg-white p-4 rounded-xl border font-bold text-[10px] uppercase">1. Entradas</button>
-                <button class="bg-white p-4 rounded-xl border font-bold text-[10px] uppercase">2. Camarones</button>
-                <button class="bg-white p-4 rounded-xl border font-bold text-[10px] uppercase">3. Tostadas</button>
-                <button class="bg-white p-4 rounded-xl border font-bold text-[10px] uppercase">4. Molcajetes</button>
-                <button class="bg-white p-4 rounded-xl border font-bold text-[10px] uppercase">5. Tacos capeados</button>
-                <button class="bg-white p-4 rounded-xl border font-bold text-[10px] uppercase">6. Mojarra frita</button>
-                <button class="bg-white p-4 rounded-xl border font-bold text-[10px] uppercase">7. Ceviche</button>
-                <button class="bg-white p-4 rounded-xl border font-bold text-[10px] uppercase">8. Aguachile</button>
-                <button class="bg-white p-4 rounded-xl border font-bold text-[10px] uppercase">9. Filete</button>
-                <button class="bg-white p-4 rounded-xl border font-bold text-[10px] uppercase">10. Copa loca</button>
-                <button class="bg-white p-4 rounded-xl border font-bold text-[10px] uppercase">11. Cócteles</button>
-                <button class="bg-white p-4 rounded-xl border font-bold text-[10px] uppercase">12. Torre de mariscos</button>
-                <button class="bg-white p-4 rounded-xl border font-bold text-[10px] uppercase">13. Piña rellena</button>
-                <button class="bg-blue-600 text-white p-4 rounded-xl font-bold text-[10px] uppercase shadow-md">14. Sushi</button>
-                <button class="bg-blue-600 text-white p-4 rounded-xl font-bold text-[10px] uppercase shadow-md">15. Menú Infantil</button>
-            </div>
-        </div>
-    </div>
 
     <script>
         function toggleMenu() {
